@@ -72,9 +72,9 @@ hello
 		{
 			name: "empty file",
 			files: `
--- example --`,
+-- __init__.py --`,
 			want: Result{
-				"example": "",
+				"__init__.py": "",
 			},
 		},
 	}
