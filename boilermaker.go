@@ -34,13 +34,10 @@ func ParseFS(fsys fs.FS) (*Boilerplate, error) {
 	bp := Boilerplate{
 		Template: template.New(""),
 	}
-	err := fs.WalkDir(fsys, ".", func(path string, d fs.DirEntry, ferr error) error {
-		if d == nil {
-			return nil
+	err := fs.WalkDir(fsys, ".", func(path string, d fs.DirEntry, err error) error {
+		if err != nil {
+			return err
 		}
-		// if err != nil {
-		// 	return err
-		// }
 
 		if path == "_boilermaker.json" {
 			return bp.ParseMetadata(fsys, path)
