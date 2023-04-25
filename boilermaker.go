@@ -74,7 +74,7 @@ func ParseFS(fsys fs.FS) (*Boilerplate, error) {
 }
 
 // Generate a map of files for the boilerplate.
-func (bp Boilerplate) Generate(data map[string]any) (Result, error) {
+func (bp Boilerplate) Generate(data any) (Result, error) {
 	output := Result{}
 
 	for _, tmpl := range bp.Template.Templates() {
