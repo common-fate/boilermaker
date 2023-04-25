@@ -69,6 +69,14 @@ hello
 			},
 			want: Result{},
 		},
+		{
+			name: "empty file",
+			files: `
+-- example --`,
+			want: Result{
+				"example": "",
+			},
+		},
 	}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
