@@ -59,7 +59,10 @@ func ParseFS(fsys fs.FS) (*Boilerplate, error) {
 			return err
 		}
 
-		bp.Template.New(path).Parse(string(fileBytes))
+		_, err = bp.Template.New(path).Parse(string(fileBytes))
+		if err != nil {
+			return err
+		}
 
 		return nil
 	})
