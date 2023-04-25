@@ -108,7 +108,7 @@ func TestBoilerplateSet(t *testing.T) {
 			files: `
 -- one/example --
 {{ .ReplaceMe }}
--- two/{{.ReplaceMe}}
+-- two/{{.ReplaceMe}} --
 test
 `,
 			want: map[string]Result{
